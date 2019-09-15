@@ -1,0 +1,127 @@
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+	<edmx:Reference Uri="/Northwind/V2/northwind/northwind.svc/$metadata">
+		<edmx:Include Alias="Metadata" Namespace="NorthwindModel"/>
+	</edmx:Reference>
+	<edmx:Reference Uri="https://wiki.scn.sap.com/wiki/download/attachments/448470968/UI.xml?api=v2">
+		<edmx:Include Alias="UI" Namespace="com.sap.vocabularies.UI.v1"/>
+	</edmx:Reference>
+	<edmx:DataServices>
+		<Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="FioriElementSalesOrder.annotations.annotation0.NorthwindModel">
+			<Annotations Target="Metadata.Order">
+				<Annotation Term="UI.Facets">
+					<Collection>
+						<Record Type="UI.ReferenceFacet">
+							<PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#SalesOrderCustomer"/>
+							<PropertyValue Property="Label" String="{@i18n&gt;CUSTOMER_DETAILS}"/>
+						</Record>
+						<Record Type="UI.ReferenceFacet">
+							<PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#SalesOrderShipment"/>
+							<PropertyValue Property="Label" String="{@i18n&gt;SHIPMENT_DETAILS_}"/>
+						</Record>
+					</Collection>
+				</Annotation>
+				<Annotation Term="UI.FieldGroup" Qualifier="SalesOrderCustomer">
+					<Record Type="UI.FieldGroupType">
+						<PropertyValue Property="Data">
+							<Collection>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="CustomerID"/>
+									<PropertyValue Property="Label" String="{@i18n&gt;CUSTOMER_ID}"/>
+								</Record>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="EmployeeID"/>
+									<PropertyValue Property="Label" String="{@i18n&gt;EMPLOYEED_ID}"/>
+								</Record>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="OrderID"/>
+									<PropertyValue Property="Label" String="{@i18n&gt;ORDER_ID}"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.FieldGroup" Qualifier="SalesOrderShipment">
+					<Record Type="UI.FieldGroupType">
+						<PropertyValue Property="Data">
+							<Collection>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="ShipAddress"/>
+									<PropertyValue Property="Label" String="{@i18n&gt;SHIPADDRESS}"/>
+								</Record>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="ShipName"/>
+									<PropertyValue Property="Label" String="{@i18n&gt;SHIPNAME}"/>
+								</Record>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="ShippedDate"/>
+									<PropertyValue Property="Label" String="{@i18n&gt;SHIPDATE}"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.DataPoint" Qualifier="ShipCity">
+					<Record Type="UI.DataPointType">
+						<PropertyValue Property="Value" Path="ShipCity"/>
+						<PropertyValue Property="Title" String="{@i18n&gt;SHIPCITY}"/>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.DataPoint" Qualifier="SalesorderID">
+					<Record Type="UI.DataPointType">
+						<PropertyValue Property="Value" Path="CustomerID"/>
+						<PropertyValue Property="Title" String="{@i18n&gt;CUSTOMER_ID}"/>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.DataPoint" Qualifier="OrderID">
+					<Record Type="UI.DataPointType">
+						<PropertyValue Property="Value" Path="OrderID"/>
+						<PropertyValue Property="Title" String="{@i18n&gt;ORDER_ID}"/>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.HeaderInfo">
+					<Record Type="UI.HeaderInfoType">
+						<PropertyValue Property="TypeName" String="{@i18n&gt;ORDER}"/>
+						<PropertyValue Property="TypeNamePlural" String="{@i18n&gt;ORDERS}"/>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.DataPoint">
+					<Record Type="UI.DataPointType">
+						<PropertyValue Property="Value" Path="Freight"/>
+						<PropertyValue Property="Title" String="{@i18n&gt;%GROSS}"/>
+						<PropertyValue Property="Visualization" EnumMember="UI.VisualizationType/Progress"/>
+						<PropertyValue Property="TargetValue" Decimal="500.0000"/>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.SelectionFields">
+					<Collection>
+						<PropertyPath>OrderID</PropertyPath>
+						<PropertyPath>CustomerID</PropertyPath>
+						<PropertyPath>EmployeeID</PropertyPath>
+					</Collection>
+				</Annotation>
+				<Annotation Term="UI.LineItem">
+					<Collection>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="OrderID"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="OrderDate"/>
+							<PropertyValue Property="Criticality" EnumMember="UI.CriticalityType/Positive"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="RequiredDate"/>
+							<PropertyValue Property="Criticality" EnumMember="UI.CriticalityType/Negative"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="ShipAddress"/>
+						</Record>
+						<Record Type="UI.DataFieldForAnnotation">
+							<PropertyValue Property="Target" AnnotationPath="@UI.DataPoint"/>
+							<PropertyValue Property="Label" String="{@i18n&gt;%GROSS}"/>
+						</Record>
+					</Collection>
+				</Annotation>
+			</Annotations>
+		</Schema>
+	</edmx:DataServices>
+</edmx:Edmx>
